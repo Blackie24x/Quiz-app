@@ -7,7 +7,7 @@ import { Store } from "../Context";
 // };
 
 const Quiz: React.FC = () => {
-  const { amount, difficulty, questions, setCreatingMode } = useContext(Store);
+  const { amount, questions, setCreatingMode } = useContext(Store);
   const [number, setNumber] = useState(1);
   const [pickedAnswer, setPickedAnswer] = useState("");
   const [sortedAnswers, setSortedAnswers]: any = useState([]);
@@ -24,8 +24,6 @@ const Quiz: React.FC = () => {
     if (isCorrect) correctAnswers.current++;
   }, [isCorrect]);
   useEffect(() => {
-    ///sorting of the answers
-    // console.log("number");
     const incorrectAnswers = questions[number - 1].incorrect_answers;
     const correct_answer = questions[number - 1].correct_answer;
     setSortedAnswers(
@@ -36,11 +34,8 @@ const Quiz: React.FC = () => {
     const correct_answer = questions[number - 1].correct_answer;
 
     const answers = [...sortedAnswers];
-    console.log("main function invoked");
 
     const stylesOnCheckAnswer = (answer: string) => {
-      // console.log("function invoked");
-
       if (pickedAnswer === correct_answer && pickedAnswer === answer) {
         if (!isCorrect) setIsCorrect(true);
         return "correct";
@@ -85,7 +80,7 @@ const Quiz: React.FC = () => {
           </p>
           <p className="percent-label">Correct Answers</p>
           <p className="score-desc">
-            You answered correctly on{" "}
+            You answered correctly on
             <span className="correct">{correctAnswers.current}</span> out of{" "}
             <span className="total">{amount}</span> questions
           </p>

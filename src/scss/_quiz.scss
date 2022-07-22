@@ -103,6 +103,8 @@
       }
     }
     .answer {
+      flex-grow: 1;
+      width: 0%;
       font-weight: 500;
     }
   }

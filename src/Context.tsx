@@ -1,22 +1,21 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 type Props = {
   children: JSX.Element;
 };
 
 interface Values {
-  amount: any;
+  amount: number;
   setAmount: any;
   difficulty: string;
-  setDifficulty: any;
+  setDifficulty: (value: string) => void;
   creatingMode: boolean;
-  // setCreatingMode: (value: boolean) => void;
-  setCreatingMode: any;
+  setCreatingMode: (value: boolean) => void;
   questions: any;
   setQuestions: any;
 }
 
-export const Store = createContext<Partial<Values>>({});
+export const Store = createContext({} as Values);
 
 const Context: React.FC<Props> = ({ children }) => {
   const [amount, setAmount] = useState(10);

@@ -1,12 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ReactSlider from "react-slider";
 import { Store } from "../Context";
 
-type QuizSetupProps = {
-  onClick?: () => void;
-};
-
-const QuizSetup: React.FC = (props: QuizSetupProps) => {
+const QuizSetup: React.FC = () => {
   const {
     amount,
     setAmount,
@@ -21,7 +17,6 @@ const QuizSetup: React.FC = (props: QuizSetupProps) => {
       `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`
     );
     const data = await res.json();
-    console.log(data.results);
     setQuestions(data.results);
     setCreatingMode(false);
   };

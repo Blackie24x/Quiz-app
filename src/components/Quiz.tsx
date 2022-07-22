@@ -1,11 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Store } from "../Context";
 
-// type Props = {
-//   amount: number;
-//   difficulty: string;
-// };
-
 const Quiz: React.FC = () => {
   const { amount, questions, setCreatingMode } = useContext(Store);
   const [number, setNumber] = useState(1);

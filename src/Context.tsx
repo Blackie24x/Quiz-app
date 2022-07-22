@@ -6,12 +6,16 @@ type Props = {
 
 interface Values {
   amount: number;
-  setAmount: any;
+  setAmount: (value: number) => void;
   difficulty: string;
   setDifficulty: (value: string) => void;
   creatingMode: boolean;
   setCreatingMode: (value: boolean) => void;
-  questions: any;
+  questions: {
+    question: string;
+    correct_answer: string;
+    incorrect_answers: string[];
+  }[];
   setQuestions: any;
 }
 

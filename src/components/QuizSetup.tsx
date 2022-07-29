@@ -43,7 +43,6 @@ const QuizSetup: React.FC = () => {
         <div className="lvls-wrap">
           <p className="lvl-heading">Select a difficulty</p>
           <div className="lvls">
-            {" "}
             <div
               className={`lvl ${difficulty === "easy" ? "picked" : ""}`}
               onClick={() => setDifficulty("easy")}
